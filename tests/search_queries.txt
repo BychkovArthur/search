@@ -1,0 +1,40 @@
+# Тестовые запросы для булева поиска
+# Формат: запрос | ожидаемое описание
+
+# Простые запросы
+the
+buffalo
+istanbul
+ankara
+
+# AND запросы
+istanbul && ankara
+the && istanbul
+buffalo && new
+
+# OR запросы
+istanbul || ankara
+buffalo || york
+the || and
+
+# NOT запросы
+istanbul && !ankara
+the && !buffalo
+
+# Сложные запросы со скобками
+(istanbul || ankara) && turkey
+(the || a) && !wikipedia
+(buffalo || york) && (new || city)
+
+# Очень частотные термы
+the
+and
+of
+
+# Редкие термы
+xyzabc123
+nonexistentterm
+
+# Пустой результат
+buffalo && xyznonexistent
+

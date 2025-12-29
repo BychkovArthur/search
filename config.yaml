@@ -1,0 +1,216 @@
+# Конфигурация поискового робота для турецкой Википедии
+# Лабораторная работа 2
+
+# Настройки базы данных
+db:
+  type: mongodb
+  host: localhost
+  port: 27017
+  database: turkish_wiki_search
+  collection: documents
+  
+# Настройки логики робота
+logic:
+  # Задержка между запросами (секунды)
+  delay_between_requests: 0.2
+  
+  # Количество документов для загрузки
+  target_document_count: 30000
+  
+  # Минимальное количество слов в документе (снижено с учетом полного HTML)
+  min_words: 500
+  
+  # Периодичность переобкачки (дни)
+  reindex_period_days: 30
+  
+  # Размер батча для обработки
+  batch_size: 50
+  
+  # Таймаут запроса (секунды)
+  request_timeout: 10
+  
+  # Максимальное количество повторных попыток
+  max_retries: 3
+  
+  # Количество параллельных потоков
+  num_workers: 5
+
+# Источники данных (расширенный список для разнообразия)
+sources:
+  # Случайные статьи для достижения целевого количества
+  - name: "Turkish Wikipedia - Random Articles Batch 1"
+    type: "wikipedia_random"
+    batch_size: 2000
+    priority: 1
+    
+  - name: "Turkish Wikipedia - Random Articles Batch 2"
+    type: "wikipedia_random"
+    batch_size: 2000
+    priority: 1
+    
+  - name: "Turkish Wikipedia - Random Articles Batch 3"
+    type: "wikipedia_random"
+    batch_size: 2000
+    priority: 1
+    
+  - name: "Turkish Wikipedia - Random Articles Batch 4"
+    type: "wikipedia_random"
+    batch_size: 2000
+    priority: 1
+    
+  - name: "Turkish Wikipedia - Random Articles Batch 5"
+    type: "wikipedia_random"
+    batch_size: 2000
+    priority: 1
+    
+  - name: "Turkish Wikipedia - Random Articles Batch 6"
+    type: "wikipedia_random"
+    batch_size: 2000
+    priority: 1
+    
+  - name: "Turkish Wikipedia - Random Articles Batch 7"
+    type: "wikipedia_random"
+    batch_size: 2000
+    priority: 1
+    
+  - name: "Turkish Wikipedia - Random Articles Batch 8"
+    type: "wikipedia_random"
+    batch_size: 2000
+    priority: 1
+    
+  - name: "Turkish Wikipedia - Random Articles Batch 9"
+    type: "wikipedia_random"
+    batch_size: 2000
+    priority: 1
+    
+  - name: "Turkish Wikipedia - Random Articles Batch 10"
+    type: "wikipedia_random"
+    batch_size: 2000
+    priority: 1
+  
+  - name: "Turkish Wikipedia - Featured Articles"
+    type: "wikipedia_category"
+    category: "Kategori:Seçkin_maddeler"
+    priority: 2
+    
+  - name: "Turkish Wikipedia - History"
+    type: "wikipedia_category"
+    category: "Kategori:Türkiye_tarihi"
+    priority: 2
+    
+  - name: "Turkish Wikipedia - Ottoman Empire"
+    type: "wikipedia_category"
+    category: "Kategori:Osmanlı_İmparatorluğu"
+    priority: 2
+    
+  - name: "Turkish Wikipedia - Geography"
+    type: "wikipedia_category"
+    category: "Kategori:Coğrafya"
+    priority: 2
+    
+  - name: "Turkish Wikipedia - Literature"
+    type: "wikipedia_category"
+    category: "Kategori:Edebiyat"
+    priority: 2
+    
+  - name: "Turkish Wikipedia - Cities"
+    type: "wikipedia_category"
+    category: "Kategori:Şehirler"
+    priority: 2
+    
+  - name: "Turkish Wikipedia - Turkey"
+    type: "wikipedia_category"
+    category: "Kategori:Türkiye"
+    priority: 2
+    
+  - name: "Turkish Wikipedia - Science"
+    type: "wikipedia_category"
+    category: "Kategori:Bilim"
+    priority: 3
+    
+  - name: "Turkish Wikipedia - Chemistry"
+    type: "wikipedia_category"
+    category: "Kategori:Kimya"
+    priority: 3
+    
+  - name: "Turkish Wikipedia - Biology"
+    type: "wikipedia_category"
+    category: "Kategori:Biyoloji"
+    priority: 3
+    
+  - name: "Turkish Wikipedia - Physics"
+    type: "wikipedia_category"
+    category: "Kategori:Fizik"
+    priority: 3
+    
+  - name: "Turkish Wikipedia - Mathematics"
+    type: "wikipedia_category"
+    category: "Kategori:Matematik"
+    priority: 3
+    
+  - name: "Turkish Wikipedia - Computer Science"
+    type: "wikipedia_category"
+    category: "Kategori:Bilgisayar_bilimi"
+    priority: 3
+    
+  - name: "Turkish Wikipedia - Engineering"
+    type: "wikipedia_category"
+    category: "Kategori:Mühendislik"
+    priority: 3
+    
+  - name: "Turkish Wikipedia - Art"
+    type: "wikipedia_category"
+    category: "Kategori:Sanat"
+    priority: 4
+    
+  - name: "Turkish Wikipedia - Music"
+    type: "wikipedia_category"
+    category: "Kategori:Müzik"
+    priority: 4
+    
+  - name: "Turkish Wikipedia - Sports"
+    type: "wikipedia_category"
+    category: "Kategori:Spor"
+    priority: 4
+    
+  - name: "Turkish Wikipedia - Football"
+    type: "wikipedia_category"
+    category: "Kategori:Futbol"
+    priority: 4
+    
+  - name: "Turkish Wikipedia - Technology"
+    type: "wikipedia_category"
+    category: "Kategori:Teknoloji"
+    priority: 4
+    
+  - name: "Turkish Wikipedia - Philosophy"
+    type: "wikipedia_category"
+    category: "Kategori:Felsefe"
+    priority: 4
+    
+  - name: "Turkish Wikipedia - Medicine"
+    type: "wikipedia_category"
+    category: "Kategori:Tıp"
+    priority: 4
+    
+  - name: "Turkish Wikipedia - Economics"
+    type: "wikipedia_category"
+    category: "Kategori:Ekonomi"
+    priority: 4
+    
+  - name: "Turkish Wikipedia - Politics"
+    type: "wikipedia_category"
+    category: "Kategori:Siyaset"
+    priority: 4
+
+# Настройки Wikipedia API
+wikipedia:
+  base_url: "https://tr.wikipedia.org/w/api.php"
+  user_agent: "TurkishWikiSearchBot/1.0 (Educational Project)"
+  language: "tr"
+
+# Логирование
+logging:
+  level: INFO
+  file: "logs/crawler.log"
+  console: true

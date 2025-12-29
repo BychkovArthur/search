@@ -1,0 +1,33 @@
+# Compiled files
+*.o
+*.out
+tokenize
+build_index
+search
+dump_index
+test_stemmer
+
+# Index files
+*.forward
+*.inverted
+*.meta
+indexer_input.jsonl
+indexer_input.tsv
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+logs/*.log
+logs/*.pid
+
+# Temporary
+*.tmp
+*.swp
+

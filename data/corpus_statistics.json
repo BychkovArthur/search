@@ -1,0 +1,27 @@
+{
+  "source1": {
+    "name": "Turkish Wikipedia - Regular Articles",
+    "url": "https://tr.wikipedia.org",
+    "count": 35,
+    "total_raw_size": 104222,
+    "total_text_size": 97150,
+    "total_words": 12127
+  },
+  "source2": {
+    "name": "Turkish Wikipedia - Featured Articles",
+    "url": "https://tr.wikipedia.org/wiki/Kategori:Seçkin_maddeler",
+    "count": 15,
+    "total_raw_size": 42388,
+    "total_text_size": 39419,
+    "total_words": 4721
+  },
+  "total": {
+    "count": 50,
+    "total_raw_size": 146610,
+    "total_text_size": 136569,
+    "total_words": 16848,
+    "avg_doc_size": 2932.2,
+    "avg_text_size": 2731.38,
+    "avg_words": 336.96
+  }
+}
