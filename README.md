@@ -106,6 +106,19 @@ python3 scripts/monitor_crawler.py config.yaml
 
 Настройки в `config.yaml`
 
+### Экспорт/импорт БД
+
+```bash
+# Экспорт базы данных
+./scripts/backup_mongodb.sh
+
+# Создать архив для переноса
+tar -czf mongodb_backup.tar.gz mongodb_backup/
+
+# Восстановление
+./scripts/restore_mongodb.sh
+```
+
 ## Анализ корпуса
 
 ### Загрузка примеров (ЛР1)
